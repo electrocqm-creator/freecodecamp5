@@ -1,16 +1,21 @@
 console.log("hello world");
+
+
 let express = require('express');
 let app = express();
 app.use(function (req, res, next) {
   console.log(${req.method} ${req.path} - ${req.ip});
   next();
 });
+
 app.use("/public", express.static(__dirname + "/public"));
+
 const path = require("path");
 
 app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "/views/index.html"));
 });
+
 // Nueva ruta que devuelve JSON
 app.get("/json", function (req, res) {
   let response = { "message": "Hello json" };
@@ -21,6 +26,42 @@ app.get("/json", function (req, res) {
 
   res.json(response);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ module.exports = app;
 
 
 
