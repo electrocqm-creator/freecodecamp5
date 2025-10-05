@@ -7,7 +7,12 @@ const path = require("path");
 app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "/views/index.html"));
 });
-
+// Nueva ruta que devuelve JSON
+app.get("/json", function(req, res) {
+  res.json({
+    "message": "Hello json"
+  });
+});
 
 
 
