@@ -8,10 +8,14 @@ app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "/views/index.html"));
 });
 // Nueva ruta que devuelve JSON
-app.get("/json", function(req, res) {
-  res.json({
-    "message": "Hello json"
-  });
+app.get("/json", function (req, res) {
+  let response = { "message": "Hello json" };
+
+  if (process.env.MESSAGE_STYLE === "uppercase") {
+    response.message = response.message.toUpperCase();
+  }
+
+  res.json(response);
 });
 
 
